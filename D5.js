@@ -58,28 +58,61 @@ const cars = [
   },
 ]
 
-//cars.licensePlate(0) = "FALL1N1"
-//cars.licensePlate(1) = "2JRI424"
-//cars.licencePlate(2) = "OUTATIME"
+cars[0].licencePlate = "FALL1N1"
+cars[1].licencePlate = "2JRI424"
+cars[2].licencePlate = "OUTATIME"
 
-//for(i=0; i<cars.length; i++){
- // console.log(cars.licencePlate[i])
-///}
+console.log('Le macchine hanno le targhe ora', cars)
 
 /* ESERCIZIO 6
     Scrivi del codice per aggiungere un nuovo oggetto in ultima posizione nell'array "cars", rispettando la struttura degli altri elementi.
     Successivamente, rimuovi l'ultimo elemento della proprietà "trims" da ogni auto.
 */
 
+const Bugatti = {
+  brand: 'Bugatti',
+  model: 'Veyron',
+  color: 'black',
+  trims: ['16.4', 'pur', 'sang'],
+}
+
+const cars3 = {...cars[0], ...Bugatti}
+cars.push(cars3)
+console.log('Ho aggiunto una quarta macchina', cars)
+
+/* Ho lasciato questa parte commentata perché il delete non permetteva l'esecuzione
+del codice scritto nell'esercizio 7
+
+for(let i=0; i<cars.length; i++){
+  delete cars[i].trims
+}
+
+console.log(cars)*/
+
 /* ESERCIZIO 7
     Scrivi del codice per salvare il primo elemento della proprietà "trims" di ogni auto nel nuovo array "justTrims", sotto definito.
 */
+
 const justTrims = []
+
+for(let i=0; i<cars.length; i++){
+  justTrims.push(cars[i].trims[0])
+}
+
+console.log('Queste sono solo le trims', justTrims)
 
 /* ESERCIZIO 8
     Cicla l'array "cars" e costruisci un if/else statament per mostrare due diversi messaggi in console. Se la prima lettera della proprietà
     "color" ha valore "b", mostra in console "Fizz". Altrimenti, mostra in console "Buzz".
 */
+
+for(let i=0; i<cars.length; i++){
+  if(cars[i].color.charAt(0) === "b"){
+    console.log("Fizz")
+  } else {
+    console.log("Buzz")
+  }
+}
 
 /* ESERCIZIO 9
     Utilizza un ciclo while per stampare in console i valori del seguente array numerico fino al raggiungimento del numero 32.
@@ -89,9 +122,10 @@ const numericArray = [
 ]
 
 let counter = 0
-// while(counter < numericArray[13])
- // console.log(numericArray)
-  // counter++
+while(counter < numericArray.length-4){
+  console.log(numericArray[counter])
+  counter++
+}
 
 /* ESERCIZIO 10
     Partendo dall'array fornito e utilizzando un costrutto switch, genera un nuovo array composto dalle posizioni di ogni carattere all'interno
